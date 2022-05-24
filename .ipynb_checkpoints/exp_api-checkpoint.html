@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<style>
+#basic-documentation {
+
+ margin: 1em;
+ padding: 1em;
+ border: 1px dotted black;
+ 
+}
+</style>
+
+<div style="margin:1em; padding: 1em; border: 1px dotted gray; font: 500 16pt sans-serif; ">
+<h3>Erowid Exp API Intro Documentation (last edited Mar 30 2022)</h3>
+
+Hello!<br/><br/>
+
+Your API Code is berkeley_bcsp_tyrone_2022 . It expires June 30, 2022. This is private to you and your project team.<br/><br/>
+
+Separate projects need a separate API Code.<br/><br/>
+
+<b>First</b>: Humans we are. The web can now sometimes seems like a commercial, overly anonymous, yet alienatingly-intimate distant mess. You are not on the generic or commercial web, you are on Erowid. :) <br/><br/>
+
+Erowid is run by humans who care about its users, the data, and helping you get your analysis of our data as accurate as practical.<br/><br/>
+ 
+<!-- I wrote this message just for you, Polito et al. If you're working on research or analysis of the Erowid Experience Reports, you're already in communication with us. We can be slow to respond because we're super busy, but you're not shouting into the void, you're just talking to a small team of dedicated folks. If something isn't working for you, let us know and then ping us again if you don't hear back.<br/><br/> -->
+
+<b>Second</b>: Software! There is no such thing as perfect software. I (earth) wrote all of the software involved. You can blame me for any problems you have. Some of it doesn't work because there are so few users of this particular interface, which is modified to suit individual circumstances. Please poke around, try things out, ask questions, and demand bug fixes if you find any problems. :] <br/><br/>
+
+<h4>Basics</h4>
+
+The API is used by entering URLs (see below for details) into a browser/crawling software. If you need help with this, feel free to ask. Happy to add parameters or make changes if that's helpful for what you're doing.<br/><br/>
+
+Using this as a human will not burden our server. If you set up a robotic crawler to access this API, please run it at night in North America and cap it to at moderate speed.<br/><br/>
+
+</div>
+
+<div id="basic-documentation">
+
+<h3>Erowid Design URLs</h3>
+
+Read everything above.  If you don't need an intro, skip to the section "Erowid Design URLs" below. Othwerise, walk through this. If you don't understand it, email. We can help make this easy.<br/><br/>
+
+All Erowid URLs, as with this API, are formed with a basic receiver url and simple human-english-readable parameters. In this case that means:<br><br/>
+
+&nbsp;<div style="font-size:larger;font-family: monospace;">https://erowid.org/experiences/research/exp_api.php?param=value&amp;param2=value2</div><br/>
+
+If you don't understand this, check with your web tech people who should understand this as a simple URL parameter formation.
+
+<p>The main data organization for Erowid Experience Reports are based on the very simple structure that there are ExperienceReports that have meta data, title data, and body. The most important meta-data are Substances ('topics'). Substances can have children ('sub topics', aka equivalent topics). There is a one-to-many relationship between ExperienceReport and PrimarySubstance. (see below for random notes). This API is primarily for grabbing reports by ID and by substance ID.</p>
+
+<h4>How to Begin</h4>
+
+Start with a list of experiences for a given substance. We'll pick SubstanceID=1. The default is to show as HTML so you (human) can see the results in your browser.<br/><br/> In this API, when you get to the point of having your robots read the data, you will want to change the format parameter to xml. (add  " &format=xml " to the URL).  Using the API, all HTML is stripped out of the report bodies when using format=xml.<br/><br/>
+
+The following link gives  list of experiences for SubstanceID=1 (&substance_id=1), with a max results set to 2 (&max=2). With HTML as the output, it looks like this:<br/> https://erowid.org/experiences/research/exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&substance_id=1&max=2 <br/><br/>
+Active Link: <a href="https://erowid.org/experiences/research/exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&substance_id=1&max=2">a = experience_list & substance_id = 1 &  max = 2</a><br/><br/>
+
+Add  "&format=xml" to the URL to get the results in XML instead of human-viewable HTML.<br/><br/>
+
+Now to retrieve the text of a report for a single experience report (exp ID) :
+
+<a href="https://erowid.org/experiences/research/exp_api.php?api_code=berkeley_bcsp_tyrone_2022&substance_id=1&a=experience_data&max=1">a = experience data ; substance_id = 1 ; max = 1</a><br/><br/>
+
+Look at the output, then try using your web browser and change the final parameter (max=1) to max=2. 
+
+<h3>Some Basic Example URLs</h3>
+
+<ul>
+ <b>Substance List</b> 
+ <li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=substance_list">show substance list</a>   OR 
+     <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=substance_list&format=xml"> xml</a>  
+ </li>
+      <b>Category List</b> 
+ <li> 
+     <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=category_list">show category list</a> OR
+     <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=category_list&format=xml"> xml</a>
+ </li>
+<b>Experience ID Lists</b>
+ <li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&substance_id=1">show experience list  by substance_id list (comma separated)</a> OR
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&substance_id=1&format=xml"> xml</a> 
+ </li>
+ <li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&experience_id=1">show experience list by experience_id (comma separated)</a> OR
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_list&experience_id=1&format=xml"> xml</a>
+ </li>
+
+<b>Full Exp Data</b><br/>
+ <li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_data&substance_id=350">show experience list by substance_id list (comma separated)</a> OR 
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_data&substance_id=350&format=xml"> xml</a>
+ </li>
+<li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_data&experience_id=1">show experience data by experience_id (comma separated)</a> OR
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_data&experience_id=1&format=xml"> xml</a>
+ </li>
+
+<b>Experience => CategoryIDs</b><br/>
+ <li>
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_categoryid&experience_id=47302,47732">show experience category data, one line per experience (comma separated)</a> OR 
+    <a href="exp_api.php?api_code=berkeley_bcsp_tyrone_2022&a=experience_categoryid, experience_id=47302,47732&format=xml"> xml</a>
+ </li>
+
+<b>Get a list of experience IDs</b><br/>
+ <li>
+    <a href="/experiences/research/exp_api.php?api_code=matt2017&a=full_exp_list&experience_id=47302,47732&max=100000000&include_cellar=no">one big list of experience ids, can set cellar yes or no</a> 
+</li>
+<br/>
+<b>Logic Set Intersection or Union Simple Tool</b><br/>
+ <li> You can paste in comma sep lists into the open fields: <a href="http://www.molbiotools.com/listcompare.html">http://www.molbiotools.com/listcompare.html</a>
+ </li>
+
+
+</ul>
+
+<h3>URL Parameters:</h3>
+<ul>
+ <li><b>api_code :  secret code!</b> Set this to the code you were given upon approval of use of this API. All uses are logged and monitored, but there is no default restriction on number of users or IP addresses. If you plan on more than 10 different users poking around this API, let us know so we don't assume the code is being misused :] </li> 
+ 
+ <li><b>max : integer</b> Maximum number of results that will be returned regardless of how many match the parameters. Default = 10.  <u>Please keep this set low until you know you have your parameters set correctly.</u> </li> 
+ <li><b>substance_id : integer or comma-separated list of integers</b></li>
+<!--  <li><b>substance_logic : "and" or "or" or "complex" (defaults to "or")</b> This parameter determines whether the substance IDs </li> -->
+ 
+
+ <li><b>experience_id : integer or comma-seperated list</b></li>
+ <li><b>include_cellar : "yes" or "no" (default "no")</b> . Cellar reports were rated by Erowid Reviewers as "F" quality, but with some possible data that should be saved for the historical record. For textual analysis, we recommend against including them without deep inspection.</li> 
+ <li><b>strip_html : "yes" or "no".</b> Defaults to yes if using XML, no if not using XML. This uses a very simple html stripper. You should do your own syntactical screening after this.</li>
+ <li><b>include_child_substances : "yes" or "no" (defaults to "yes").</b> NOTE THE DEFAULT HAS CHANGED as of Sep 30, 2019.  Many Erowid Substances have 'child' sub-topics. When using the public (live) interfaces, in almost all cases search results are inclusive of sub-topics.  For instance, 'cannabis' as an erowid substance includes the child topics Cannabis - High THC, Cannabis - Hash, and Cannabis - High CBD. For this API, the default is not to return reports for child substances.  Note that some "Substances" in this list are actually what we call "groupings" and are defined as always having zero reports directly associate with them. Other Erowid Substances are both groupings and generic names.<br/><br/>
+
+&nbsp;&nbsp;The data gets a little complicated, but a simple example is Benzodiazepines. Only reports where we're certain that a benzo was involved but the identity was unclear would get this coded as a 'primary substance' for the report. As of 2018, Erowid is now re-coding substances that fit into these generic Substances (such as Benzodiazepines) into newly created substances that are more like "Benzodiazepine - Unidentified" and cleaning up the 'groupings', but this process is not complete. The most important one of these transitions was the re-organization of the Ayahuasca groupings in November 2017-March 2018.  Please contact us if you have any question about whether the substances you're working with are edge cases.<br/><br/>
+
+&nbsp;&nbsp;A PrimarySubstance is any substance clearly defined as being used in the report but is not cannabis, alcohol, caffeine, supplements, or pharmaceuticals that the Erowid reviewers believed would obscure the main substances of interest in the report. This is an absurdly complicated area that we have documented in multiple articles over the last 20 years and are happy to try to describe if you don't immediately understand why a long LSD report that mentions drinking a beer at the end should not be coded with "alcohol" as a PrimarySubstance. 
+
+ 
+
+</ul>
+
+
+<pre>
+
+</pre>
+
+</div>
+<pre style="white-space:pre-wrap; border: 2px dotted; padding: 1em;">
+Use of the Erowid Experience API requires understanding and agreement with the terms of service. 
+
+No data from this API or from the Erowid Experience Vaults can be published in any way (online or otherwise) without explicit, written approval from Erowid. (yes email counts)
+
+Any data from the Erowid Experience Vaults that is referenced or included in any published article must be referenced and cited properly according to Erowid's citation standards. Most research and publications based on this data require at least one Erowid staff member be a co-author on the publication. You agree to this requirement by accessing this data.
+
+We love good research and are happy to provide our data for good research, but this dataset represents an enormous amount of crew and volunteer hours (literally tens of thousands of person hours). Please invite us to participate!
+
+</pre>
