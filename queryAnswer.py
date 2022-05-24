@@ -9,7 +9,7 @@ from ipywidgets import *
     description='Question:',
     continuous_update = False))
 def get_answer(query):
-    openai.api_key = "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"
+    openai.api_key = "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"
     response = openai.Completion.create(
       engine="text-davinci-002",
       prompt= query,
