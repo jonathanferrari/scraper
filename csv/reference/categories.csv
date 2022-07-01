@@ -1,0 +1,55 @@
+Category,ID,CategoryID,type,hierarchy position,date of first report,number of reports linked to this category
+Addiction & Habituation ,10, type,Health  , Primary , 2000 May 31 ,2655
+Alone ,16, type,Context  , Secondary , 2000 May 31 ,11413
+Bad Trips ,6, type,General  , Primary , 2000 Jun 11 ,1845
+Club / Bar ,25, type,Context  , Secondary , 2000 May 31 ,403
+Combinations ,3, type,General  , Primary , 2000 May 30 ,8791
+Cultivation / Synthesis ,31, type,General  , Secondary , 2000 Jun 14 ,64
+Depression ,15, type,Health  , Secondary , 2000 Jun 14 ,1308
+Difficult Experiences ,5, type,General  , Primary , 2000 May 31 ,5858
+Entities / Beings ,37, type,General  , Secondary , 2000 Jun 12 ,2548
+Families ,41, type,General  , Primary , 2001 Apr 01 ,346
+Festival / Lg. Crowd ,24, type,Context  , Secondary , 2000 May 30 ,534
+First Times ,2, type,General  , Primary , 2000 May 30 ,11020
+General ,1, type,General  , Primary , 1995 Jun 13 ,15855
+Glowing Experiences ,4, type,General  , Primary , 2000 May 30 ,5589
+Group Ceremony ,21, type,Context  , Secondary , 2000 Jun 26 ,167
+Guides / Sitters ,39, type,General  , Secondary , 2000 Jul 13 ,722
+Hangover / Days After ,46, type,General  , Secondary , 2000 Dec 06 ,2857
+Health Benefits ,32, type,General  , Primary , 2000 Dec 13 ,871
+Health Problems ,27, type,Health  , Primary , 2000 Jun 09 ,2868
+Hospital ,36, type,Context  , Secondary , 2001 Mar 01 ,422
+HPPD / Lasting Visuals ,40, type,General  , Secondary , 2001 Jul 02 ,264
+Large Group (10+) ,19, type,Context  , Secondary , 2000 May 31 ,593
+Large Party ,54, type,Context  , Secondary , 2015 Dec 26 ,77
+Loss of Magic ,34, type,General  , Secondary , 2001 Jan 31 ,167
+Medical Use ,47, type,General  , Primary , 2004 May 05 ,1616
+Military ,48, type,Context  , Secondary , 2007 Feb 07 ,18
+Multi-Day Experience ,13, type,General  , Secondary , 2000 Jun 13 ,996
+Music Discussion ,22, type,General  , Secondary , 2000 May 29 ,1550
+Mystical Experiences ,9, type,General  , Primary , 2000 May 31 ,1948
+Nature / Outdoors ,23, type,General  , Secondary , 2000 May 29 ,1164
+Not Applicable ,38, type,Context  , Secondary , 2000 Jun 13 ,3306
+Overdose ,29, type,Health  , Secondary , 2000 Jun 19 ,1216
+Performance Enhancement ,50, type,General  , Secondary , 2003 Nov 26 ,503
+Personal Preparation ,45, type,General  , Secondary , 2002 Feb 16 ,502
+Poetry ,43, type,General  , Secondary , 2001 Oct 14 ,161
+Post Trip Problems ,8, type,Health  , Secondary , 2000 May 31 ,1401
+Pregnancy / Baby ,33, type,General  , Secondary , 2001 Apr 03 ,20
+Preparation / Recipes ,30, type,General  , Primary , 2000 Jun 13 ,1632
+"Public Space (Museum, Park, etc) ",53, type,Context  , Secondary , 2013 Jul 13 ,352
+Rave / Dance Event ,18, type,Context  , Secondary , 2000 May 30 ,498
+Relationships ,44, type,General  , Secondary , 2001 Nov 13 ,982
+Retrospective / Summary ,11, type,General  , Primary , 2000 May 31 ,6367
+School ,35, type,Context  , Secondary , 2001 May 18 ,376
+Second Hand Report ,42, type,General  , Secondary , 2001 Sep 06 ,460
+Sex Discussion ,14, type,General  , Secondary , 2000 Jun 14 ,1082
+Small Group (2-9) ,17, type,Context  , Secondary , 2000 May 29 ,12694
+Therapeutic Intent or Outcome ,49, type,General  , Secondary , 2002 Jul 14 ,1859
+Therapeutic Session / Clinic ,55, type,Context  , Secondary , 2021 Apr 28 ,7
+Train Wrecks & Trip Disasters ,7, type,General  , Primary , 2000 May 31 ,1334
+Unknown Context ,20, type,Context  , Secondary , 1995 Jun 13 ,4722
+Various ,28, type,Context  , Secondary , 2000 Jun 12 ,5370
+Video ,52, type,General  , Secondary , 2013 Jan 22 ,3
+What Was in That? ,26, type,General  , Primary , 2000 Jun 19 ,592
+Workplace ,51, type,Context  , Secondary , 2009 Sep 24 ,112
