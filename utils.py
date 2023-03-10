@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd, numpy as np 
 # utility imports
 import json, re
+from IPython.display import *
 
 #########################
 # Environment Variables #
@@ -147,6 +148,41 @@ def addDict(file = None, dct = None, keys = None, values = None):
             for key, value in zip(keys, values):
                 dct[key] += value  
     writeDict(dct, file)
+    
+def reduceDict(dct):
+    new_dct = {}
+    if dct == bad:
+        trip_type = "bad"
+    elif dct == first:
+        trip_type = "first"
+    elif dct == general:
+        trip_type = "general"
+    for substance, subDict in dct.items():
+        for id, ssDict in subDict.items():
+            info = ssDict['info']
+            info["substance"] = substance
+            info["trip_type"] = trip_type
+            new_dct[id] = info
+    return new_dct
+
+def dict_to_csv(dct):
+    experiences = pd.DataFrame.from_dict(dct, orient='index').reset_index(drop = True)
+    keep = ["id", "trip_type", "substance", "substance-string", 
+        "substance-id-list", "submitted-date", "published-rating", 
+        'primary-category-id', 'list-number', 'intensity',
+        'category-id-list', 'experience-year', 'gender', 
+        "author", "title", "text"]
+    mapper = {"id": "id", 
+            "trip_type": "trip_type", 
+            "substance": "substance", 
+            "substance-string": "substance_name", 
+            "substance-id-list": "substance_id", 
+            "submitted-date": "date", 
+            "published-rating": "rating",
+            "primary-category-id": 'category_id', 
+            'list-number': 'list_number', 
+            'intensity': 'intensity'}
+    return experiences[keep].rename(columns = mapper)
 
 #####################
 # General Utilities #
@@ -300,4 +336,8 @@ class Experience:
             sort_keys=True, indent=4)
         return raw
         
-    
+####################
+# Setup Functions  #
+####################
+
+bad, first, general = [readDict(f"data/{name}") for name in ["bad", "first", "general"]]
