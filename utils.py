@@ -4,7 +4,7 @@ from pathlib import Path
 # standard data analysis libraries
 import pandas as pd, numpy as np 
 # utility imports
-import json, re
+import json, re, os
 from IPython.display import *
 
 #########################
@@ -340,6 +340,23 @@ class Experience:
         with open(f"narratives/txt/{title}.txt", "w") as f:
             f.write(text)
         
+    def get_size(file_path):
+        return os.path.getsize(file_path)/1000
+    
+    def make_index(dir):
+        base_dir = "/".join(dir.split("/")[:-1])
+        files = os.listdir(dir)
+        size = [get_size(f"{dir}/{f}") for f in files]
+        base_url = f"https://raw.githubusercontent.com/jonathanferrari/scraper/main/{dir}"
+        url = [f"{base_url}/{f}" for f in files]
+        anchor = [f"<a href='{u}'>{f}</a>" for u, f in zip(url, files)]
+        pd.set_option('display.max_colwidth', None)
+        txt = pd.DataFrame({"file": anchor, "size (kb)": size})
+        csv = pd.DataFrame({"file": [f"<a href='{base_url}/csv/narratives.csv'>narratives.csv</a>"], 
+                    "size (kb)": [get_size(f"{base_dir}/csv/narratives.csv")]})
+        df = pd.concat([csv, txt])
+        df.to_html(f"{base_dir}/index.html", escape=False, classes = 'table table-stripped table-hover')
+        print(f"made {base_dir}/index.html")
 ####################
 # Setup Functions  #
 ####################
