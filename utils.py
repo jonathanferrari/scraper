@@ -335,6 +335,10 @@ class Experience:
                          default= lambda o: vars(o), 
             sort_keys=True, indent=4)
         return raw
+    
+    def writeToFile(title, text):
+        with open(f"narratives/txt/{title}.txt", "w") as f:
+            f.write(text)
         
 ####################
 # Setup Functions  #
